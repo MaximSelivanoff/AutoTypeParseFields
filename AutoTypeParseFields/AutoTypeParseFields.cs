@@ -1,6 +1,5 @@
 ﻿using KeePass.Plugins;
 using KeePass.Util;
-using static KeePass.Util.AutoType;
 using KeePass.Util.Spr;
 using KeePassLib;
 using System;
@@ -83,7 +82,8 @@ namespace AutoTypeParseFields
                 switch (operation)
                 {
                     case "WORD":
-                        if (int.TryParse(param, out int n))
+                        int n;
+                        if (int.TryParse(param, out n))
                         {
                             string[] words = value.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
                             if (n > 0 && n <= words.Length)
